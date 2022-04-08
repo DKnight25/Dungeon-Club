@@ -5,6 +5,7 @@ class Sold(): #Soldier -- Солдат
     lname=None #Last name -- Фамилия
     titl=None # Title -- Звание
     yr=None # Year -- Год (Начания... Начинания... Вступления в службу)
+    wg=None # Wage -- Оплата (Оклад)
 file_input = open ('base.txt','r',encoding="utf8")
 slds=[] # Soldiers -- Солдаты
 while True:
@@ -17,6 +18,7 @@ while True:
      lname=x[0]
      sd.titl=x[3]
      sd.yr=x[4]
+     sd.wg=x[5]
      slds.append(sd)
 with open('base.dat','wb') as file_output:
      pickle.dump(slds,file_output)
