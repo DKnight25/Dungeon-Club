@@ -23,7 +23,7 @@ while True:
 def Exit():
     exit()
 def sortfog():
-    pass
+    com=input()
 def append():
     while True:
         com=list(input().split())
@@ -33,15 +33,23 @@ def append():
         except:
             pass
 def edit():
-    pass
-def delete():
+    com=input()
     
+def delete():
+    while True:
+        com=int(input())
+        try:
+            slds.pop(com)
+            break
+        except:
+            pass
 def burn():
     pass
 def print_soldier():
     com=input()
     for i in range(len(slds)):
         if slds[i][2]==com:
+            print(i,end=')')
             for j in range(6):
                 print(slds[i][j],end=' ')
             print('')
@@ -73,10 +81,6 @@ while True:
             pass
         if com=='year':
             pass
-    if com=='append':
-        pass
-    if com=='delete':
-        pass
     if com=='burn':
         #Запись в файл под тем же или новым именем
         pass
