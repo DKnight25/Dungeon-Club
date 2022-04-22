@@ -15,7 +15,7 @@ while True:
      sd=Sold()
      sd.sh_fn=x[1]
      sd.sh_ptnc=x[2]
-     lname=x[0]
+     sd.lname=x[0]
      sd.titl=x[3]
      sd.yr=x[4]
      sd.wg=x[5]
