@@ -19,7 +19,6 @@ for i in range (len(slds_tmp)):
     slds[i].append(slds_tmp[i].yr)
     slds[i].append(slds_tmp[i].wg)
 def Exit():
-    print ('chego')
     exit()
 def sortfog():
     while True:
@@ -50,7 +49,14 @@ def append():
         except:
             print ('An exeption occured in append')
 def edit():
-    com=input()
+    com=list(map(int,input().split()))
+    print (com)
+    if com[1] <=1:
+        slds[com[0]][com[1]]=input()[0]+'.'
+    elif com[1]>=4:
+        slds[com[0]][com[1]]=str(int(input()))
+    else:
+        slds[com[0]][com[1]]=input()
 def delete():
     while True:
         com=int(input())
@@ -59,17 +65,17 @@ def delete():
             break
         except:
             print ('An exeption occured in delete')
-def burn():
-    slds_end=[]
-    for i in range (len(slds)):
-        sd=Sold()
-        sd.sh_fn=slds[i][0]
-        sd.sh_ptnc=slds[i][1]
-        sd.lname=slds[i][2]
-        sd.titl=slds[i][3]
-        sd.yr=slds[i][4]
-        sd.wg=slds[i][5]
-        slds_end.append(sd)
+#def burn():
+#    slds_end=[]
+#    for i in range (len(slds)):
+#        sd=Sold()
+#        sd.sh_fn=slds[i][0]
+#        sd.sh_ptnc=slds[i][1]
+#        sd.lname=slds[i][2]
+#        sd.titl=slds[i][3]
+#        sd.yr=slds[i][4]
+#        sd.wg=slds[i][5]
+#        slds_end.append(sd)
 with open('base.dat','wb') as file_output:
     pickle.dump(slds,file_output)
     file_output.close()
@@ -85,11 +91,11 @@ def print_all():
             print(slds[i][j],end=' ')
         print('')
 metod={'exit':Exit,
-    'sort':sortfog,
-    'append':append,
+#    'sort':sortfog,
+#    'append':append,
     'edit':edit,
     'delete':delete,
-    'burn':burn,
+#    'burn':burn,
     'print soldier':print_soldier,
     'print all':print_all
     }
