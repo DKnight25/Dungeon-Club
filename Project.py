@@ -39,15 +39,15 @@ def sortfog():
                 print(slds)
             break
         except:
-            print ('An exeption occured in sortfog')
+            print ('An exception occured in sortfog')
 def append():
     while True:
-        com=list(input().split())
+        com=input()
         try:
-            slds.append([com[:6]])
+            slds.append(*com.split())
             break
         except:
-            print ('An exeption occured in append')
+            print ('An exception occured in append')
 def edit():
     com=list(map(int,input().split()))
     print (com)
@@ -64,18 +64,11 @@ def delete():
             slds.pop(com)
             break
         except:
-            print ('An exeption occured in delete')
-#def burn():
-#    slds_end=[]
-#    for i in range (len(slds)):
-#        sd=Sold()
-#        sd.sh_fn=slds[i][0]
-#        sd.sh_ptnc=slds[i][1]
-#        sd.lname=slds[i][2]
-#        sd.titl=slds[i][3]
-#        sd.yr=slds[i][4]
-#        sd.wg=slds[i][5]
-#        slds_end.append(sd)
+            print ('An exception occured in delete')
+def burn():
+    with open('base.dat', 'wb') as file_output:
+        pickle.dump(slds,file_output)
+        file_output.close()
 with open('base.dat','wb') as file_output:
     pickle.dump(slds,file_output)
     file_output.close()
@@ -92,10 +85,10 @@ def print_all():
         print('')
 metod={'exit':Exit,
 #    'sort':sortfog,
-#    'append':append,
+    'append':append,
     'edit':edit,
     'delete':delete,
-#    'burn':burn,
+    'burn':burn,
     'print soldier':print_soldier,
     'print all':print_all
     }
@@ -104,4 +97,4 @@ while True:
     try:
         metod[com]()
     except:
-        print ('An exeption occured in execution')
+        print ('An exception occured in execution')
